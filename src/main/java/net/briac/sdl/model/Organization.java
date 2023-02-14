@@ -8,11 +8,12 @@ public class Organization {
     public String ParentOrganizationId;
     public String[] ChildOrganizations;
     public Boolean IsLibrary;
-    
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Organization [UniqueId=").append(UniqueId).append(", Name=").append(Name).append(", Description=").append(Description).append("]");
+        builder.append("Organization [UniqueId=").append(UniqueId).append(", Name=").append(Name)
+                .append(", Description=").append(Description).append("]");
         return builder.toString();
     }
 

@@ -98,7 +98,8 @@ public class GroupshareTMWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelGroupshare.setBorder(javax.swing.BorderFactory.createTitledBorder(res.getString("PANEL_GROUPSHARE"))); // NOI18N
+        panelGroupshare
+                .setBorder(javax.swing.BorderFactory.createTitledBorder(res.getString("PANEL_GROUPSHARE"))); // NOI18N
 
         labelServerAddress.setText(res.getString("SERVER_ADDRESS")); // NOI18N
 
@@ -112,39 +113,49 @@ public class GroupshareTMWindow extends javax.swing.JFrame {
         panelGroupshare.setLayout(panelGroupshareLayout);
         panelGroupshareLayout.setHorizontalGroup(panelGroupshareLayout
                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelGroupshareLayout.createSequentialGroup().addContainerGap().addGroup(panelGroupshareLayout
-                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(labelLogin, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelServerAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                        .addComponent(labelPassword, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelGroupshareLayout.createSequentialGroup().addContainerGap()
+                        .addGroup(panelGroupshareLayout
+                                .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(labelLogin, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelServerAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 76,
+                                        Short.MAX_VALUE)
+                                .addComponent(labelPassword, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGroupshareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelGroupshareLayout
+                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(fieldServerAddress)
                                 .addComponent(fieldLogin, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(fieldPassword))
                         .addContainerGap()));
-        panelGroupshareLayout.setVerticalGroup(panelGroupshareLayout
-                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelGroupshareLayout.createSequentialGroup().addContainerGap()
-                        .addGroup(panelGroupshareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(labelServerAddress).addComponent(fieldServerAddress,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGroupshareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(labelLogin).addComponent(fieldLogin,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelGroupshareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(labelPassword).addComponent(fieldPassword,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+        panelGroupshareLayout.setVerticalGroup(
+                panelGroupshareLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelGroupshareLayout.createSequentialGroup().addContainerGap()
+                                .addGroup(panelGroupshareLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(labelServerAddress).addComponent(fieldServerAddress,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelGroupshareLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(labelLogin).addComponent(fieldLogin,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelGroupshareLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(labelPassword).addComponent(fieldPassword,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
-        panelProject.setBorder(javax.swing.BorderFactory.createTitledBorder(res.getString("PANEL_SDL_PROJECT"))); // NOI18N
+        panelProject
+                .setBorder(javax.swing.BorderFactory.createTitledBorder(res.getString("PANEL_SDL_PROJECT"))); // NOI18N
 
         labelSdlppx.setText(res.getString("SDL_PPX_FILE")); // NOI18N
 
@@ -153,8 +164,8 @@ public class GroupshareTMWindow extends javax.swing.JFrame {
 
         javax.swing.GroupLayout panelProjectLayout = new javax.swing.GroupLayout(panelProject);
         panelProject.setLayout(panelProjectLayout);
-        panelProjectLayout
-                .setHorizontalGroup(panelProjectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelProjectLayout.setHorizontalGroup(
+                panelProjectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelProjectLayout.createSequentialGroup().addContainerGap()
                                 .addComponent(labelSdlppx, javax.swing.GroupLayout.PREFERRED_SIZE, 78,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,10 +179,12 @@ public class GroupshareTMWindow extends javax.swing.JFrame {
         panelProjectLayout.setVerticalGroup(panelProjectLayout
                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelProjectLayout.createSequentialGroup().addContainerGap()
-                        .addGroup(panelProjectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(panelProjectLayout
+                                .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(labelSdlppx)
                                 .addComponent(fieldSdlppx, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(buttonBrowse))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
@@ -188,21 +201,22 @@ public class GroupshareTMWindow extends javax.swing.JFrame {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
-                .createSequentialGroup().addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(scrollLog)
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout
+                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(scrollLog)
                         .addComponent(panelGroupshare, javax.swing.GroupLayout.DEFAULT_SIZE,
                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panelProject, javax.swing.GroupLayout.DEFAULT_SIZE,
                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
                                 layout.createSequentialGroup().addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(buttonSavePrefs, javax.swing.GroupLayout.PREFERRED_SIZE, 89,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(buttonSavePrefs, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(buttonFetchTm, javax.swing.GroupLayout.PREFERRED_SIZE, 90,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap()));
+                                        .addComponent(buttonFetchTm, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()));
         layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup().addContainerGap()
                         .addComponent(panelGroupshare, javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -255,8 +269,8 @@ public class GroupshareTMWindow extends javax.swing.JFrame {
         try {
             GroupshareTMClient gtc = new GroupshareTMClient();
             gtc.setLogArea(logArea);
-            gtc.downloadTM(fieldServerAddress.getText(), fieldLogin.getText(), new String(fieldPassword.getPassword()),
-                    fieldSdlppx.getText());
+            gtc.downloadTM(fieldServerAddress.getText(), fieldLogin.getText(),
+                    new String(fieldPassword.getPassword()), fieldSdlppx.getText());
         } catch (Exception ex) {
             logArea.append(ex.getMessage());
         }

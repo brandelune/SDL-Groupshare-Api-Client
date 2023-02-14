@@ -1,0 +1,75 @@
+plugins {
+	id 'eclipse'
+	id 'application'
+	id 'com.diffplug.spotless' version '6.13.0'
+	id 'nebula.release' version '15.3.1'
+}
+
+applicationName = 'SDLApiClient'
+mainClassName = 'net.briac.sdl.GroupshareTMClient'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation group: 'org.glassfish.jersey.core', name: 'jersey-client', version: '2.25.1'
+	implementation group: 'org.glassfish.jersey.media', name: 'jersey-media-moxy', version: '2.25.1'
+	implementation group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: '2.25.1'
+	implementation group: 'com.owlike', name: 'genson', version: '1.4'
+
+	testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+	manifest {
+		attributes(
+				'Main-Class': mainClassName,
+				'Implementation-Title': applicationName,
+				'Implementation-Version': version
+				)
+	}
+}
+
+
+// https://github.com/diffplug/spotless/tree/main/plugin-gradle
+spotless {
+	// limit format enforcement to just the files changed by this feature branch
+	//ratchetFrom 'origin/main'
+
+	java {
+		eclipse().configFile 'config/eclipse/eclipse-formatting.xml'
+		removeUnusedImports()
+	}
+
+	groovyGradle {
+		target '*.gradle' // default target of groovyGradle
+		greclipse()
+	}
+
+	format 'misc', {
+		target '*.md', '.gitignore'
+		trimTrailingWhitespace()
+		indentWithSpaces()
+		endWithNewline()
+	}
+}
+
+allprojects {
+	tasks.withType(JavaCompile) {
+		options.encoding = 'utf-8'
+		options.deprecation = true
+		//options.compilerArgs << "-Xlint:unchecked"
+	}
+
+	tasks.withType(Test) {
+		systemProperty 'file.encoding', 'utf-8'
+	}
+
+	tasks.withType(JavaExec) {
+		systemProperty 'file.encoding', 'utf-8'
+	}
+}

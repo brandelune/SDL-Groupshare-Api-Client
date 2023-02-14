@@ -49,29 +49,34 @@ public class SDLApiClient {
     public SDLApiClient(String sdlServer, String username, String password) {
         client = ClientBuilder.newClient();
         restUri = sdlServer;
-        HttpAuthenticationFeature feature = HttpAuthenticationFeature.basicBuilder().credentials(username, password)
-                .build();
+        HttpAuthenticationFeature feature = HttpAuthenticationFeature.basicBuilder()
+                .credentials(username, password).build();
 
         client
-                // .register(new LoggingFeature(Logger.getLogger(getClass().getName()),
+                // .register(new
+                // LoggingFeature(Logger.getLogger(getClass().getName()),
                 // Level.INFO, null, null))
                 .register(feature);
     }
 
     // http://gs2017dev.sdl.com:41234/documentation/api/index#!/Login/Login_signin
     public void login() {
-        Response res = client.target(restUri).path("/authentication/api/1.0/login").request(MediaType.APPLICATION_JSON)
-                .post(Entity.json(
+        Response res = client.target(restUri).path("/authentication/api/1.0/login")
+                .request(MediaType.APPLICATION_JSON).post(Entity.json(
                         "[\"ManagementRestApi\",\"ProjectServerRestApi\",\"MultiTermRestApi\",\"TMServerRestApi\"]"));
 
-        bearerToken = res.readEntity(String.class).replaceAll("\"", ""); // THIS IS VERY UGLY
+        bearerToken = res.readEntity(String.class).replaceAll("\"", ""); // THIS
+                                                                         // IS
+                                                                         // VERY
+                                                                         // UGLY
 
         // System.err.println("Bearer " + bearerToken);
     }
 
     public Map<String, Organization> getOrganizations() {
         Response res = client.target(restUri).path("/api/management/V2/organizations")
-                .request(MediaType.APPLICATION_JSON).header(HttpHeaders.AUTHORIZATION, "Bearer " + bearerToken).get();
+                .request(MediaType.APPLICATION_JSON)
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + bearerToken).get();
 
         Map<String, Organization> orgs = new HashMap<>();
         for (Organization org : res.readEntity(Organization[].class)) {
@@ -86,7 +91,8 @@ public class SDLApiClient {
         Response res = client.target(restUri)
                 .path(UriBuilder.fromPath("api/management/V2/organizationresources/{organizationId}")
                         .build(org.UniqueId).getPath())
-                .request(MediaType.APPLICATION_JSON).header(HttpHeaders.AUTHORIZATION, "Bearer " + bearerToken).get();
+                .request(MediaType.APPLICATION_JSON)
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + bearerToken).get();
         Map<String, OrganizationResource> resources = new HashMap<>();
         for (OrganizationResource resource : res.readEntity(OrganizationResource[].class)) {
             resources.put(resource.Name, resource);
@@ -104,8 +110,8 @@ public class SDLApiClient {
         Integer tuCount = res.readEntity(Integer.class);
 
         if (tuCount == null) {
-            System.err
-                    .println("Cannot get TU count for resource \"" + orgRes.Id + "\" (" + source + "/" + target + ").");
+            System.err.println("Cannot get TU count for resource \"" + orgRes.Id + "\" (" + source + "/"
+                    + target + ").");
             tuCount = 0;
         }
         return tuCount;
@@ -114,7 +120,8 @@ public class SDLApiClient {
     public TranslationUnits getTus(String orgResId, String source, String target, int startTuId, int count) {
         Response res = client.target(restUri)
                 .path(UriBuilder.fromPath("api/tmservice/tms/{tmId}/tus").build(orgResId).getPath())
-                // .register(new LoggingFeature(Logger.getLogger(getClass().getName()),
+                // .register(new
+                // LoggingFeature(Logger.getLogger(getClass().getName()),
                 // Level.INFO, null, null))
                 .queryParam("source", source).queryParam("target", target).queryParam("startTuId", startTuId)
                 .queryParam("count", count).request(MediaType.APPLICATION_JSON)
@@ -125,8 +132,10 @@ public class SDLApiClient {
 
     public SearchResults searchConcordance(String tmId, String source, String target, SearchText searchText) {
         Response res = client.target(restUri)
-                .path(UriBuilder.fromPath("api/tmservice/tms/{tmId}/search/concordance").build(tmId).getPath())
-                // .register(new LoggingFeature(Logger.getLogger(getClass().getName()),
+                .path(UriBuilder.fromPath("api/tmservice/tms/{tmId}/search/concordance").build(tmId)
+                        .getPath())
+                // .register(new
+                // LoggingFeature(Logger.getLogger(getClass().getName()),
                 // Level.INFO, null, null))
                 .queryParam("source", source).queryParam("target", target).request(MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + bearerToken).post(Entity.json(searchText));

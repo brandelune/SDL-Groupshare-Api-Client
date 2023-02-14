@@ -1,7 +1,6 @@
 
 package net.briac.sdl.model;
 
-
 public class MatchingConcordanceRange {
 
     public From from;
