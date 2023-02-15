@@ -16,5 +16,4 @@ public class Child {
     public TranslationOrigin translationOrigin;
     public String placeholderTagDefinitionId;
 
-
 }

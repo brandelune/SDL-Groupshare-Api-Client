@@ -61,7 +61,6 @@ import net.briac.sdl.model.ParagraphUnit;
 import net.briac.sdl.model.SystemFields;
 import net.briac.sdl.model.TranslationUnits;
 
-
 public class GroupshareTMClient extends DefaultHandler {
 
     private String sourceLanguage;
@@ -99,7 +98,8 @@ public class GroupshareTMClient extends DefaultHandler {
         }
     }
 
-    public void downloadTM(String sdlServer, String username, String password, String sdlppxFile) throws Exception {
+    public void downloadTM(String sdlServer, String username, String password, String sdlppxFile)
+            throws Exception {
 
         String outputDirectory = new java.io.File(sdlppxFile).getParent();
 
@@ -130,12 +130,14 @@ public class GroupshareTMClient extends DefaultHandler {
             URI uri = new URI(pu);
 
             String query = uri.getRawQuery();
-            // Query decoded for each param individually, since some param value may contain
+            // Query decoded for each param individually, since some param value
+            // may contain
             // "&" inside (e.g. "&amp;")
             for (String queryPart : query.split("&")) {
                 String[] kv = queryPart.split("=", 2);
                 if (kv[0].equals("orgPath")) {
-                    orgPath = URLDecoder.decode(kv[1], StandardCharsets.UTF_8.toString()).replaceFirst("/", "");
+                    orgPath = URLDecoder.decode(kv[1], StandardCharsets.UTF_8.toString()).replaceFirst("/",
+                            "");
                 } else if (kv[0].equals("tmName")) {
                     tmName = URLDecoder.decode(kv[1], StandardCharsets.UTF_8.toString());
                 }
@@ -188,7 +190,8 @@ public class GroupshareTMClient extends DefaultHandler {
     }
 
     private void getTMX(SDLApiClient app, String source, String target, OrganizationResource tmResource,
-            java.io.File outputFile) throws FileNotFoundException, XMLStreamException, FactoryConfigurationError,
+            java.io.File outputFile)
+            throws FileNotFoundException, XMLStreamException, FactoryConfigurationError,
             UnsupportedEncodingException, IOException, JsonParseException, JsonMappingException {
 
         int tuCount = app.getTuCount(tmResource, source, target);
@@ -286,7 +289,8 @@ public class GroupshareTMClient extends DefaultHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+    public void startElement(String uri, String localName, String qName, Attributes attributes)
+            throws SAXException {
         // <LanguageDirection Guid="85be37a4-3b7d-4e6e-b2a6-27ee5f4af0a2"
         // SettingsBundleGuid="9599ea6e-ee31-4337-bcad-c653f0e1e21d"
         // TargetLanguageCode="fr-CA" SourceLanguageCode="en-US">
